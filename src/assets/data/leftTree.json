@@ -3,5 +3,10 @@
         "title": "记忆游戏",
         "iconClass": "el-icon-goods",
         "href": "/memory-game"
+    },
+    {
+        "title": "Flex布局",
+        "iconClass": "el-icon-goods",
+        "href": "/flex"
     }
 ]
