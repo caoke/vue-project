@@ -8,5 +8,10 @@
         "title": "Flex布局",
         "iconClass": "el-icon-goods",
         "href": "/flex"
+    },
+    {
+        "title": "center",
+        "iconClass": "el-icon-goods",
+        "href": "/center"
     }
 ]

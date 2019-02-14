@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 
 const MemoryGame = () => import(/* webpackChunkName: MemoryGame */ '../components/MemoryGame.vue')
 const Flex = () => import(/* webpackChunkName: MemoryGame */ '../components/Flex.vue')
+const Center = () => import(/* webpackChunkName: MemoryGame */ '../components/Center.vue')
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/flex',
       name: 'Flex',
       component: Flex
+    },
+    {
+      path: '/center',
+      name: 'Center',
+      component: Center
     }
   ]
 })
