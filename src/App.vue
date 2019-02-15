@@ -50,7 +50,6 @@ export default {
     background-color:rgb(0, 21, 41);
     box-shadow: 4px 0px 3px #aaaaaa;
     overflow: hidden;
-    margin-right: 10px;
     .logo{
         color: #ffffff;
         background: #333;

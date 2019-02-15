@@ -13,5 +13,10 @@
         "title": "center",
         "iconClass": "el-icon-goods",
         "href": "/center"
+    },
+    {
+        "title": "editor",
+        "iconClass": "el-icon-edit",
+        "href": "/editor"
     }
 ]
