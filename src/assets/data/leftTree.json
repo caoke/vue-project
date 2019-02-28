@@ -5,14 +5,26 @@
         "href": "/memory-game"
     },
     {
-        "title": "Flex布局",
+        "title": "css",
         "iconClass": "el-icon-goods",
-        "href": "/flex"
-    },
-    {
-        "title": "center",
-        "iconClass": "el-icon-goods",
-        "href": "/center"
+        "href": "/css",
+        "children": [
+            {
+                "title": "Flex布局",
+                "iconClass":"el-icon-goods",
+                "href":"/css/flex"
+            },
+            {
+                "title": "center",
+                "iconClass": "el-icon-goods",
+                "href": "/css/center"
+            },
+            {
+                "title": "float",
+                "iconClass": "el-icon-goods",
+                "href": "/css/float"
+            }
+        ]
     },
     {
         "title": "editor",

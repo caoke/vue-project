@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 
 const MemoryGame = () => import(/* webpackChunkName: MemoryGame */ '../components/MemoryGame.vue')
-const Flex = () => import(/* webpackChunkName: MemoryGame */ '../components/Flex.vue')
-const Center = () => import(/* webpackChunkName: MemoryGame */ '../components/Center.vue')
+const Css = () => import(/* webpackChunkName: Css */ '../components/css/Index.vue')
+const Flex = () => import(/* webpackChunkName: Css */ '../components/css/Flex.vue')
+const Center = () => import(/* webpackChunkName: Css */ '../components/css/Center.vue')
+const Float = () => import(/* webpackChunkName: Css */ '../components/css/Float.vue')
 const Editor = () => import(/* webpackChunkName: MemoryGame */ '../components/Editor.vue')
 
 Vue.use(Router)
@@ -22,14 +24,26 @@ export default new Router({
       component: MemoryGame
     },
     {
-      path: '/flex',
-      name: 'Flex',
-      component: Flex
-    },
-    {
-      path: '/center',
-      name: 'Center',
-      component: Center
+      path: '/css',
+      name: 'Css',
+      component: Css,
+      children: [
+        {
+          path: 'flex',
+          name: Flex,
+          component: Flex
+        },
+        {
+          path: 'center',
+          name: 'Center',
+          component: Center
+        },
+        {
+          path: 'float',
+          name: 'Float',
+          component: Float
+        }
+      ]
     },
     {
       path: '/editor',
