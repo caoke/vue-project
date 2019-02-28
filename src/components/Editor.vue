@@ -11,7 +11,10 @@
             </el-select>
         </el-form-item>
         <el-form-item label="活动时间">
-            <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker type="date" placeholder="选择日期" v-model="form.date1"></el-date-picker>
+        </el-form-item>
+        <el-form-item label="活动时间">
+            <date-picker type="date" placeholder="选择日期" v-model="form.date1"></date-picker>
         </el-form-item>
         <el-form-item label="即时配送">
             <el-switch v-model="form.delivery"></el-switch>
@@ -52,10 +55,12 @@
 <script>
 import { quillEditor, Quill } from 'vue-quill-editor'
 import {container, ImageExtend, QuillWatch} from 'quill-image-extend-module'
+import DatePicker from './DatePicker.vue'
 Quill.register('modules/ImageExtend', ImageExtend)
 export default {
   components: {
-    quillEditor
+    quillEditor,
+    DatePicker
   },
   data () {
     return {
