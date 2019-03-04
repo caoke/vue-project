@@ -63,7 +63,8 @@
                                     <tr v-for="(rows,trIndex) in dateData.dates" :key="trIndex">
                                         <td v-for="(date) in rows" :key="date.date"
                                             :class="[date.class, {'current': dateData.pickerDate.includes(date.fullDate)}]"
-                                            @click="pickDate(date)">
+                                            @mousedown="mousePickDate(date, 0)"
+                                            @mouseup="mousePickDate(date, 1)">
                                             <div>
                                                 <span>{{date.date}}</span>
                                             </div>
@@ -172,6 +173,52 @@ export default {
         let index = this.dateData.pickerDate.indexOf(date.fullDate)
         this.dateData.pickerDate.splice(index, 1)
       }
+    },
+    /**
+         * 鼠标拖动选择日期
+         * @type 起止日期的标识 type 0起 1止
+         */
+    mousePickDate (date, type) {
+      let arr = []
+      if (!type) {
+        this.dateData.mouseStartDate = date.fullDate
+        return false
+      } else {
+        this.dateData.mouseEndDate = date.fullDate
+      }
+      let ab = this.dateData.mouseStartDate.split('-')
+      let ae = this.dateData.mouseEndDate.split('-')
+      let db = new Date()
+      db.setUTCFullYear(ab[0], ab[1] - 1, ab[2])
+      let de = new Date()
+      de.setUTCFullYear(ae[0], ae[1] - 1, ae[2])
+      let unixDb = db.getTime() - 24 * 60 * 60 * 1000
+      let unixDe = de.getTime() - 24 * 60 * 60 * 1000
+      for (let k = unixDb; k <= unixDe;) {
+        k = k + 24 * 60 * 60 * 1000
+        arr.push(this.formatDate(new Date(parseInt(k))))
+      }
+      for (let i = 0; i < arr.length; i++) {
+        if (!this.dateData.pickerDate.includes(arr[i])) {
+          this.dateData.pickerDate.push(arr[i])
+        } else {
+          let index = this.dateData.pickerDate.indexOf(arr[i])
+          this.dateData.pickerDate.splice(index, 1)
+        }
+      }
+
+      // return arr
+    },
+    /**
+    * 获取数组中最小的值或者最大的值
+    * @description 因为使用watch dateData.pickerDate触发的，所以不能直接操作dateData.pickerDate
+    */
+    getMinAndMax () {
+      let newArr = this.dateData.pickerDate.map(item => {
+        return item
+      }).sort()
+      this.startDate = newArr[0]
+      this.endDate = newArr[newArr.length - 1]
     },
     /**
      * 显示所有年
@@ -362,17 +409,6 @@ export default {
     ok () {
       this.switchShowPicker(false)
       this.$emit('getDate', this.dateData.pickerDate)
-    },
-    /**
-     * 获取数组中最小的值或者最大的值
-     */
-    getMinAndMax () {
-      let newArr = this.dateData.pickerDate.map(item => {
-        return item
-      })
-      console.log(newArr.sort())
-      this.startDate = newArr[0]
-      this.endDate = newArr[newArr.length - 1]
     },
     init () {
       let date = new Date()
