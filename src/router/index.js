@@ -7,7 +7,8 @@ const Css = () => import(/* webpackChunkName: Css */ '../components/css/Index.vu
 const Flex = () => import(/* webpackChunkName: Css */ '../components/css/Flex.vue')
 const Center = () => import(/* webpackChunkName: Css */ '../components/css/Center.vue')
 const Float = () => import(/* webpackChunkName: Css */ '../components/css/Float.vue')
-const Editor = () => import(/* webpackChunkName: MemoryGame */ '../components/Editor.vue')
+const Editor = () => import(/* webpackChunkName: Editor */ '../components/Editor.vue')
+const List = () => import(/* webpackChunkName: Editor */ '@/views/list/Index.vue')
 
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/editor',
       name: 'Editor',
       component: Editor
+    },
+    {
+      path: '/list',
+      name: 'List',
+      component: List
     }
   ]
 })
