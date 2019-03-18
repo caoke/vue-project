@@ -6,6 +6,7 @@ import Vue from 'vue'
 import Element from 'element-ui'
 import Util from './util/utils'
 import ApiPath from '@/assets/api/apiPath'
+import ajax from './util/ajax'
 import 'element-ui/lib/theme-chalk/index.css'
 import './components/global'
 import './css/index.scss'
@@ -19,3 +20,4 @@ Vue.use(Element)
  */
 Vue.prototype.$util = Util
 Vue.prototype.apiPath = ApiPath
+Vue.prototype.$http = ajax

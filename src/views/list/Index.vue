@@ -1,6 +1,6 @@
 <template>
     <box-content>
-        <el-table size="mini" :data="list">
+        <el-table v-loading="loading" size="mini" :data="list">
             <el-table-column v-for="(item,index) in headers" :label="item.label" :key="index" :prop="item.prop"></el-table-column>
         </el-table>
         <el-pagination class="float-right"
@@ -17,6 +17,7 @@
 
 <script>
 import listMixins from '@/mixins/list'
+
 export default {
   name: 'list',
   mixins: [listMixins],
@@ -51,22 +52,28 @@ export default {
       })
     },
     axiosQuery () {
-      let option = {
+      this.loading = true
+      let params = {
         pageSize: this.pageSize,
         startPage: this.pageNum
       }
-      this.axios.post(this.apiPath.list, option)
-        .then(function (response) {
-          console.log(response)
+      this.$http.post(this.apiPath.list, params)
+        .then((response) => {
+          this.loading = false
+          let res = response.body
+          if (res.code === 0) {
+            this.list = res.data.list
+            this.totalCount = res.data.totalNum
+          }
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error)
         })
     }
   },
   mounted () {
     // this.query()
-    // this.axiosQuery()
+    this.axiosQuery()
   }
 }
 </script>
