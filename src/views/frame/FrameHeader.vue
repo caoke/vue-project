@@ -6,7 +6,7 @@
         </div>
         <div class="user">
             <div class="login">
-                <span>Hi,&nbsp;&nbsp;&nbsp;{{userName}}&nbsp;&nbsp;&nbsp;欢迎登陆</span>
+                <span>Hi,&nbsp;&nbsp;&nbsp;{{userName}}&nbsp;&nbsp;&nbsp;</span>
                 <a class="logout" @click="logout">退出</a>
             </div>
         </div>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 export default {
   name: 'FrameHeader',
   props: {
@@ -24,9 +24,14 @@ export default {
       default: false
     }
   },
+  computed: {
+    ...mapState({
+      userName: state => state.user.userName
+    })
+  },
   data () {
     return {
-      userName: ''
+
     }
   },
   methods: {

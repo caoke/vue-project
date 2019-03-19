@@ -2,7 +2,7 @@
  * router intercept
  */
 import router from './router'
-import { readToken } from './utils/cookie'
+import { readToken } from './util/cookie'
 const whiteList = ['/login'] // noredirect list
 router.beforeEach((to, from, next) => {
   // open bar
