@@ -212,6 +212,7 @@ export default {
     box-sizing: border-box;
 }
 .memory-game{
+    position: relative;
     .text{
         color: #1C7CCC;
         font-size: 16px;
@@ -219,11 +220,10 @@ export default {
     }
     .el-button{
         position: absolute;
-        top:15px;
+        top:-10px;
         right: 20px;
     }
     .section-warp{
-        height: 90vh;
         background: #060AB2;
         display: flex;
         margin-top: 20px;
@@ -231,7 +231,7 @@ export default {
     .card-warp{
         width: 640px;
         height: 640px;
-        margin: auto;
+        margin: 20px auto;
         display: flex;
         flex-wrap: wrap;
         .memory-card{

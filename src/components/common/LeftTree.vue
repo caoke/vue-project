@@ -42,6 +42,7 @@
 import leftTreeDatas from '@/assets/data/leftTree.json'
 // import {mapState} from 'vuex'
 export default {
+  props: ['routers'],
   data () {
     return {
       activeIndex: '',

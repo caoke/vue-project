@@ -138,6 +138,7 @@
                <li></li>
            </ul>
        </section>
+       <router-view/>
     </div>
 </template>
 

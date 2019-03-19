@@ -18,12 +18,6 @@ const listMixins = {
     handleSizeChange (val) {
       this.pageSize = val
       this.query()
-    },
-    /**
-     * 列表数据请求成功的回调
-     */
-    listSuccessCb () {
-
     }
   }
 }
