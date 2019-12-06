@@ -64,7 +64,7 @@ export default {
   },
   data () {
     return {
-      routers: [],
+      routers: this.$router.options.routes,
       isCollapse: false
     }
   },
@@ -72,7 +72,7 @@ export default {
   },
   computed: {
     currentPath () {
-      return ''
+      return this.$router.currentRoute.fullPath
     },
     asideWidth () {
       return this.isCollapse ? '64px' : '220px'

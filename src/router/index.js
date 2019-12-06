@@ -31,8 +31,8 @@
 // })
 
 import Vue from 'vue'
-// import VueRouter from 'vue-router'
-import VueRouter from '../myRouter'
+import VueRouter from 'vue-router'
+// import VueRouter from '../myRouter'
 import RouterConfig from './modules'
 import ToppingRouter from './topping'
 // import CommonRouters from './common'
@@ -48,6 +48,6 @@ const Router = new VueRouter({
   // the real routers
   routes: [...ToppingRouter, ...RouterConfig]
 })
-Router.init()
+// Router.init()
 
 export default Router

@@ -10,13 +10,12 @@ class vueRouter {
     this.routes = options.routes || []
     this.routersMap = this.createMap(this.routes)
     this.history = new HistoryRoute()
+    this.init()
   }
   init () {
     if (!location.hash) location.hash = '/'
     window.addEventListener('load', () => {
-      console.log(location.hash.slice(1))
       this.history.current = location.hash.slice(1)
-      console.log(this.history.current)
     })
     window.addEventListener('hashchange', () => {
       this.history.current = location.hash.slice(1)
@@ -48,7 +47,6 @@ vueRouter.install = function (Vue) {
     render (h) {
       let current = this._self._routerRoot._router.history.current
       let routersMap = this._self._routerRoot._router.routersMap
-      console.log(routersMap[current])
       return h(routersMap[current])
     }
 
